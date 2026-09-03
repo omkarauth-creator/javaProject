@@ -8,7 +8,7 @@ class AppTest {
 
     @Test
     void testAddition() {
-        assertEquals(20, App.add(10, 20));
+        assertEquals(30, App.add(10, 20));
     }
 
     @Test
