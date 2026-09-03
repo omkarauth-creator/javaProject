@@ -5,13 +5,13 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Checking out Java project'
+                echo 'Checking out source code from GitHub'
             }
         }
 
-        stage('Build') {
+        stage('Compile') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean compile'
             }
         }
 
@@ -21,9 +21,15 @@ pipeline {
             }
         }
 
+        stage('Package') {
+            steps {
+                sh 'mvn package -DskipTests'
+            }
+        }
+
         stage('Success') {
             steps {
-                echo 'Java project built successfully!'
+                echo 'Java application built successfully!'
             }
         }
     }
